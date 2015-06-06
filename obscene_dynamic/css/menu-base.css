@@ -1,0 +1,64 @@
+/* ######### Drop Down ULs CSS ######### */
+
+.ddsubmenustyle, .ddsubmenustyle ul{ /*topmost and sub ULs, respectively*/
+	font-size:						13px;
+	font-family: 					Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin:							0;
+	padding: 						0;
+	position: 						absolute;
+	left: 							0;
+	top: 								0;
+	list-style-type: 				none;
+	border: 							1px solid  #414141;
+	border-bottom-width: 		0;
+	visibility: 					hidden;
+	z-index: 						100;
+}
+
+.ddsubmenustyle li a{
+	display:							block;
+	font-size: 						13px;
+	font-family: 					Verdana, Geneva, Arial, Helvetica, sans-serif;
+	width: 							160px;
+	height: 							20px;
+	color: 							#414141;
+	background-image: 			url(../img/Bg_Nav.png);
+	text-decoration: 				none;
+	padding: 						2px 4px;
+	border-bottom: 				1px solid #414141;
+}
+
+* html .ddsubmenustyle li a{
+	display: 						inline-block;
+}
+
+.ddsubmenustyle li a:hover{
+	background-image: 			url(../img/Bh_Nav_Hover.png);
+	color: 							black;
+}
+
+/* ######### Neutral CSS  ######### */
+
+.downarrowpointer{ /*CSS for "down" arrow image added to top menu items*/
+	padding-left: 					8px;
+	border: 							0;
+}
+
+.rightarrowpointer{ /*CSS for "right" arrow image added to drop down menu items*/
+	position: 						absolute;
+	padding-top: 					2px;
+	padding-bottom: 				2px;
+	right: 							2px;
+	border: 							0;
+}
+
+.ddiframeshim{
+	position: 						absolute;
+	z-index: 						500;
+	background: 					transparent;
+	border-width: 					0;
+	width: 							0;
+	height:							0;
+	display: 						block;
+	color: 							black;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+	<!-- Assign Theme name -->
+	<{assign var=theme_name value=$xoTheme->folderName}>
+	<!-- Directory html blocks files or additional html files by include -->
+	<{assign var=theme_name value=$xoTheme->folderName|cat:'/xotpl'}>
+	<!-- Directory  for additional javascript files -->	
+	<{assign var=theme_plugin value=$xoTheme->folderName|cat:'/js'}>
+	<!-- Title and meta -->
+    <meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+    <meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+	<title><{if $xoops_pagetitle !=''}><{$xoops_pagetitle}> - <{/if}><{$xoops_sitename}></title>
+	<meta name="robots" content="<{$xoops_meta_robots}>" />
+	<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+	<meta name="description" content="<{$xoops_meta_description}>" />
+	<meta name="rating" content="<{$xoops_meta_rating}>" />
+	<meta name="author" content="<{$xoops_meta_author}>" />
+	<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+	<meta name="generator" content="XOOPS" />
+	<!-- Rss -->
+	<link rel="alternate" type="application/rss+xml" title="" href="<{xoAppUrl backend.php}>" />
+	<!-- path favicon -->
+	<link rel="shortcut icon" type="image/ico" href="<{xoImgUrl img/favicon.ico}>" />
+	<link rel="icon" type="image/png" href="<{xoImgUrl img/favicon.png}>" />
+    <!-- customized header contents -->
+	<{$xoops_module_header}>
+    <!-- Sheet Css -->
+	<link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoAppUrl xoops.css}>" />
+	<link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoImgUrl css/style.css}>" />
+	<script type="text/javascript" src="<{xoImgUrl /js/menu.js}>"></script>
+</head>
+<body id="<{$xoops_dirname}>" class="<{$xoops_langcode}>"> 
+<div align="center" id="obCenter"> 
+	<table align="center" cellspacing="0" id="obLayout"> 
+    <tr> 
+	      <td rowspan="5" id="obSHL" ><img src="<{xoImgUrl img/1px.gif}>" width="17" height="1" alt="" /></td> 
+	      <td id="obR1" ></td> 
+	      <td rowspan="5" id="obSHR" ><img src="<{xoImgUrl img/1px.gif}>" width="17" height="1" alt="" /></td> 
+    </tr> 
+    <tr> 
+	    <td id="obHead" ><table cellspacing="0"> 
+			<tr> 
+	            <td id="obLogo" width="258" rowspan="2"><a href="<{xoAppUrl}>" title=""><img src="<{xoImgUrl img/logo.png}>" alt="<{$xoops_sitename}>" border="0" /></a></td> 
+		            <td id="obLog">
+						<form style="margin-top: 2px; margin-bottom: 0px" action="<{$xoops_url}>/search.php" method="post">&nbsp;&nbsp;
+							<input class="button" type="text" name="query" size="26" />
+							<input type="hidden" name="action" value="results" />
+							<input name="submit" type="submit" value="Search" />
+						</form>
+					</td> 
+				</tr> 
+		          <tr> 
+		            <td id="obLog"><{$xoops_banner}><br /></td> 
+		          </tr>
+	</table>
+		</td> 
+    </tr> 
+    <tr> 
+		<td>
+			<table id="obNav" cellspacing="0"> 
+			<div><{include file="$theme_name/nav_bar.html"}></div>
+		    </table>
+		</td> 
+    </tr> 
+    <tr> 
+	    <td>
+		<table id="obMn" cellspacing="0"> 
+	        <tr> 
+	            <td id="leftcolumn" > <!-- Start left blocks loop --> 
+							<{foreach item=block from=$xoops_lblocks}> <{include file="$theme_name/obblock_l.html"}> <{/foreach}> <br /> 
+	            <img src="<{xoImgUrl img/1px.gif}>" class="obSpacer" alt="" /> 
+	              <!-- End left blocks loop -->
+				</td> 
+	            <td id="centercolumn" ><{if $xoops_showcblock == 1}> 
+	            <table cellspacing="0"> 
+					<tr> 
+						<td id="centerCcolumn" colspan="2"> <!-- Start center-center blocks loop --> 
+							<{foreach item=block from=$xoops_ccblocks}> <{include file="$theme_name/obblock_c.html"}> <{/foreach}> 
+							<!-- End center-center blocks loop -->
+						</td> 
+					</tr> 
+	                <tr> 
+		                <td id="centerLcolumn"> <!-- Start center-left blocks loop --> 
+							<{foreach item=block from=$xoops_clblocks}> <{include file="$theme_name/obblock_c.html"}> <{/foreach}> 
+		                    <!-- End center-left blocks loop --> </td> 
+						<td id="centerRcolumn"> <!-- Start center-right blocks loop --> 
+							<{foreach item=block from=$xoops_crblocks}> <{include file="$theme_name/obblock_c.html"}> <{/foreach}> 
+		                    <!-- End center-right blocks loop -->
+						</td> 
+	                </tr> 
+	            </table> 
+<{/if}> 
+	    <!-- Start content module page -->
+		<{if $xoops_contents}><div id="content"><{$xoops_contents}></div><{/if}>
+		<!-- End content module --> 
+  	              <br /> 
+                  <!-- Start center bottom blocks loop -->
+		<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+			<table cellspacing="0">
+			<{if $xoBlocks.page_bottomcenter}>
+				<tr>
+					<td id="bottomCcolumn" colspan="2">
+					<{foreach from=$xoBlocks.page_bottomcenter item=block}>
+						<{include file="$theme_name/obblock_c.html"}>
+					<{/foreach}>
+					</td>
+				</tr>
+			<{/if}>
+
+			<{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+				<tr>
+					<td id="bottomLcolumn">
+					<{foreach from=$xoBlocks.page_bottomleft item=block}>
+						<{include file="$theme_name/obblock_c.html"}>
+					<{/foreach}>
+					</td>
+
+					<td id="bottomRcolumn">
+					<{foreach from=$xoBlocks.page_bottomright item=block}>
+						<{include file="$theme_name/obblock_c.html"}>
+					<{/foreach}>
+					</td>
+				</tr>
+			<{/if}>
+			</table>
+		<{/if}>
+		<!-- End center bottom blocks loop -->
+	              <br /> 
+	            <table cellspacing="0"> 
+	                <tr> 
+						<td id="cmsFooter" ><{$xoops_footer}></td> 
+	                </tr> 
+	                <tr> 
+						<td id="obBanner" >&nbsp;</td> 
+	                </tr> 
+	            </table>
+		</td> 
+<{if $xoops_showrblock == 1}> 
+        <td id="rightcolumn" ><{foreach item=block from=$xoops_rblocks}> <{include file="$theme_name/obblock_l.html"}> <{/foreach}><br /><img src="<{xoImgUrl img/1px.gif}>" class="obSpacer" alt="" /></td> 
+<{/if}>
+	</tr> 
+    </table>
+			
+	</td> 
+    </tr> 
+    <tr> 
+      <td id="obFooter" >
+		</td> 
+    </tr> 
+    <tr> 
+      <td id="obLBC" >&nbsp;</td> 
+      <td id="obSHB" >&nbsp;</td> 
+      <td id="obRBC" >&nbsp;</td> 
+    </tr> 
+  </table> 
+</div> 
+</body>
+</html>

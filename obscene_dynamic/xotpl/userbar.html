@@ -1,0 +1,10 @@
+<form style="margin-top: 3px; margin-left: 600px" action="<{$xoops_url}>/user.php" method="post">
+    Connexion : <{$block.lang_username}>
+    <input type="text" name="uname" size="12" value="<{$block.unamevalue}>" maxlength="25" />
+    <{$block.lang_password}>
+    <input type="password" name="pass" size="12" maxlength="32" />
+    <input type="hidden" name="xoops_redirect" value="<{$xoops_requesturi}>" />
+    <input type="hidden" name="op" value="login" />
+    <input type="submit" value="Login"  />
+    <{$block.sslloginlink}>
+</form>
